@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Judul</title>
 </head>
 <body>
-
+	<h1>Data satu</h1>
 </body>
 </html>
