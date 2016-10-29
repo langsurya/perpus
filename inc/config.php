@@ -1,6 +1,5 @@
 <?php 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db="perpus";
+
+$db_con = new PDO('mysql:host=localhost;dbname=db_perpus', 'root', '');
+
 ?>
