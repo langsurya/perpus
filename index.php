@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN HALAMAN</title>
+	<title>LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
