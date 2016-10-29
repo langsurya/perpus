@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Aplikasi Perpus PHP(PDO)</title>
+	<link rel="stylesheet" type="text/css" href="">
 </head>
 <body>
 	<h1>Data satu</h1>
