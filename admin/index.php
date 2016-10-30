@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>APLIKASI PERPUS (PDO)</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -87,6 +87,9 @@ else{
       // menu anggita
       case 'anggota':
         include "anggota_data.php";
+        break;
+      case 'anggota_input':
+        include "anggota_input.php";
         break;
       
       default:
