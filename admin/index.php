@@ -43,37 +43,17 @@ if(!isset($_SESSION['nama'])){
 }
 else{
 
+  include_once 'head.php';
 ?>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+<div class="container-fluid">
 
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h4>John's Blog</h4>
+      <h4>PHPOISON BLOGSPOT</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="index.php">Home</a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="?page=buku"><i class="glyphicon glyphicon-book"></i> Buku</a></li>
         <li><a href="?page=anggota"><i class="glyphicon glyphicon-list-alt"></i> Anggota</a></li>
         <li><a href="?page=transaksi"><i class="glyphicon glyphicon-random"></i> Transaksi</a></li>
@@ -91,11 +71,22 @@ else{
     </div>
 
     <?php 
-    error_reporting(0);
+    // error_reporting(0);
     switch ($_GET['page']) {
       // menu buku
       case 'buku':
         include "buku_data.php";
+        break;
+      case 'buku_input':
+        include "buku_input.php";
+        break;
+      case 'delete':
+        include "delete.php";
+        break;
+
+      // menu anggita
+      case 'anggota':
+        include "anggota_data.php";
         break;
       
       default:
@@ -105,6 +96,7 @@ else{
     ?>
     
   </div>
+</div>
 </div>
 <br>
 <footer class="container-fluid">
