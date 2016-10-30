@@ -24,7 +24,7 @@
 				</thead>
 				<tbody>
 				<?php 
-				include_once 'perpus.php';
+				include_once '../inc/class.perpus.php';
 				$obj = new perpus;
 				$no=0;
 				foreach ($obj->showData("tbl_anggota") as $value) {
