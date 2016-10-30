@@ -1,6 +1,6 @@
 
 <?php 
-include_once 'perpus.php';
+include_once '../inc/class.perpus.php';
 $obj = new perpus;
 
 if (isset($_POST['btn-save'])) {

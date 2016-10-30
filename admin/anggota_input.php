@@ -5,7 +5,7 @@
 
 <div class="col-md-9">
 	
-	<form method="post">
+	<form method="post" action="">
 		<table class="table table-bordered">
 			<tr>
 				<td>NIM</td>
