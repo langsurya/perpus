@@ -2,4 +2,11 @@
 aplikasi perpus PHP dan bootstrap
 
 <hr>
-baru bisa tambah data
+<tr>
+	<td>Tambah Data
+	<th>
+		<td>User</td>
+		<td>Anggota</td>
+	</th>
+	</td>
+</tr>
