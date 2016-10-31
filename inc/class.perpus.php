@@ -22,6 +22,14 @@ class perpus
 		return $data;
 	}
 
+	public function getData($id,$table,$key)
+	{
+		$stmt = $this->conn->prepare("SELECT * FROM $table WHERE $key=:key");
+		$stmt->execute(array(":key"=>$id));
+		$editRow=$stmt->fetch(PDO::FETCH_ASSOC);
+		return $editRow;
+	}
+
 	public function paging($query,$records_per_page)
 	{
 		$starting_position=0;
@@ -75,8 +83,8 @@ class perpus
 
 	}
 
-	public function jumlah($table){
-		$stmt = $this->conn->prepare("SELECT * FROM $table");
+	public function jumlah($query){
+		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		$row = $stmt->rowCount();
 		print($row);
@@ -111,6 +119,34 @@ class buku extends perpus{
 			return false;
 		}
 	}	
+
+	public function update($id,$judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi){
+		try {
+      $stmt = $this->conn->prepare("UPDATE tbl_buku SET judul=:judul, pengarang=:pengarang, penerbit=:penerbit, thn_terbit=:thn_terbit, isbn=:isbn, jumlah_buku=:jumlah_buku, lokasi=:lokasi WHERE id=:id ");
+      $stmt->bindparam(":judul",$judul);
+      $stmt->bindparam(":pengarang",$pengarang);
+      $stmt->bindparam(":penerbit",$penerbit);
+      $stmt->bindparam(":thn_terbit",$thn_terbit);
+      $stmt->bindparam(":isbn",$isbn);
+      $stmt->bindparam(":jumlah_buku",$jumlah_buku);
+      $stmt->bindparam(":lokasi",$lokasi);
+      $stmt->bindparam(":id",$id);
+      $stmt->execute();
+
+      return true;
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+      return false;
+    }
+	}
+	public function search($query){
+		// $sql = "SELECT * FROM $table";
+		$q = $this->conn->query($query) or die("failed!");
+		while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
+			$data[]=$r;
+		}
+		return $data;
+	}
 	
 }
 

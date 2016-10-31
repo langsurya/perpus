@@ -16,6 +16,7 @@
         <li><a href="#">Contact</a></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href=""><?php echo date('D'.' '.'d-m-Y') ?></a></li>
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>

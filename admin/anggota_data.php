@@ -79,7 +79,7 @@
 		  	  </td>
 		    </tr>
 			</table>
-			Jumlah : <b><?php $anggota->jumlah("tbl_anggota"); ?> Anggota</b>
+			Jumlah : <b><?php $anggota->jumlah($query); ?> Anggota</b>
 		</div>
 	</div>
 </div>

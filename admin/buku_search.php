@@ -45,7 +45,8 @@
 				include_once '../inc/class.perpus.php';
 				$buku = new buku;
 				$records_per_page=5;
-				$query = "SELECT * FROM tbl_buku";
+				$cari = $_POST['cari'];
+				$query = "SELECT * FROM tbl_buku WHERE judul like '%$cari%' OR pengarang like '%$cari%' ";
 				$newquery = $buku->paging($query,$records_per_page);
 				// penomoran halaman data pada halaman
 				$page = $_GET['page_no'];
@@ -56,7 +57,7 @@
 					$posisi = ($page - 1) * $records_per_page;
 				}
 				$no=1+$posisi;
-				foreach ($buku->showData($newquery) as $value) {
+				foreach ($buku->search($newquery) as $value) {
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>

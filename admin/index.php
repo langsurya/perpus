@@ -51,7 +51,7 @@ else{
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h4>PHPOISON BLOGSPOT</h4>
+      <h5>Wellcome : <font color="red"><?php echo $_SESSION['nama']; ?></font></h5>      
       <ul class="nav nav-pills nav-stacked">
         <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="?page=buku"><i class="glyphicon glyphicon-book"></i> Buku</a></li>
@@ -79,6 +79,12 @@ else{
         break;
       case 'buku_input':
         include "buku_input.php";
+        break;
+      case 'buku_edit':
+        include "buku_edit.php";
+        break;
+      case 'buku_search':
+        include "buku_search.php";
         break;
       case 'delete':
         include "delete.php";
