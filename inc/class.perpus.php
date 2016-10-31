@@ -93,6 +93,7 @@ class perpus
 class buku extends perpus{	
 
 	public function create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu){
+		try {
 		$stmt = $this->conn->prepare('INSERT INTO tbl_buku(judul,pengarang,penerbit,thn_terbit,isbn,jumlah_buku,lokasi,tgl_input) VALUES(?,?,?,?,?,?,?,?)');
 		$stmt->bindParam(1,$judul);
 		$stmt->bindParam(2,$pengarang);
@@ -103,12 +104,19 @@ class buku extends perpus{
 		$stmt->bindParam(7,$lokasi);
 		$stmt->bindParam(8,$waktu);
 		$stmt->execute();
+
+		return true;			
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+			return false;
+		}
 	}	
 	
 }
 
 class anggota extends perpus{
 	public function create($nim,$nama,$tempat_lahir,$tgl_lahir,$jk,$prodi,$thn_masuk){
+		try {
 		$stmt = $this->conn->prepare('INSERT INTO tbl_anggota(nim,nama,tempat_lahir,tgl_lahir,jk,prodi,thn_masuk) VALUES(?,?,?,?,?,?,?)');
 		$stmt->bindParam(1,$nim);
 		$stmt->bindParam(2,$nama);
@@ -118,7 +126,11 @@ class anggota extends perpus{
 		$stmt->bindParam(6,$prodi);
 		$stmt->bindParam(7,$thn_masuk);
 		$stmt->execute();
-		header('location:?page=anggota');
+		
+		return true;	
+		} catch (PDOException $e) {
+			return false;
+		}
 	}	
 }
 ?>

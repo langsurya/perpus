@@ -12,7 +12,7 @@ if (isset($_POST['btn-save'])) {
 	$thn_masuk = $_POST['thn_masuk'];
 
 	if ($anggota->create($nim,$nama,$tempat_lahir,$tgl_lahir,$jk,$prodi,$thn_masuk)) {
-		// header('location:?page=anggota');
+		header('location:?page=anggota&msg=success');
 	}
 }
 ?>

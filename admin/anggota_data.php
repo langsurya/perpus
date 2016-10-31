@@ -11,6 +11,19 @@
 		</div>
 		<div style="padding-top: 10px" class="panel-body">
 			<a href="?page=anggota_input" class="btn btn-large btn-success"><span class="glyphicon glyphicon-plus"></span> Input Anggota</a><br><br>
+
+			<?php if ($_GET['msg'] == "success"): ?>
+				<div class="alert alert-success">
+    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    		<strong>Success!</strong> Data berhasil di tambah.
+  		</div>
+  		<?php elseif($_GET['msg'] == "delete"): ?>
+  		<div class="alert alert-danger">
+    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    		<strong>Success!</strong> Data berhasil di hapus.
+  		</div>
+			<?php endif ?>
+
 			<table class="table table-bordered">
 				<thead>
 				<tr>

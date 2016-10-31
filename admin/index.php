@@ -71,7 +71,7 @@ else{
     </div>
 
     <?php 
-    // error_reporting(0);
+    error_reporting(0);
     switch ($_GET['page']) {
       // menu buku
       case 'buku':
