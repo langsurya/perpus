@@ -2,6 +2,7 @@
 <?php 
 include_once '../inc/class.perpus.php';
 $obj = new buku;
+date_default_timezone_set('Asia/Jakarta');
 
 if (isset($_POST['btn-save'])) {
 	$judul = $_POST['judul'];
@@ -11,14 +12,17 @@ if (isset($_POST['btn-save'])) {
 	$isbn = $_POST['isbn'];
 	$jumlah_buku = $_POST['jumlah_buku'];
 	$lokasi = $_POST['lokasi'];
-	$data = array($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi);
+	$tanggal = date('Y-m-d');
+	$jam = date('H:i:s');
+	$waktu = $tanggal.' '.$jam;
+	$data = array($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu);
 	var_dump($data);
 
 	// foreach ($data as $key => $value) {		
 	// 	echo "stmt- > " ."bindParam" ."(".$key.",".$value.")<br>";
 	// 	}
 
-	if ($obj->create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi)) {
+	if ($obj->create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu)) {
 		echo "Berhasil";
 	}
 }

@@ -29,11 +29,19 @@
 				$records_per_page=5;
 				$query = "SELECT * FROM tbl_anggota";
 				$newquery = $anggota->paging($query,$records_per_page);
-				$no=0;
+				// penomoran page row
+				$page = $_GET['page_no'];
+				if (empty($page)) {
+					$posisi = 0;
+					$halaman = 1;
+				}else{
+					$posisi = ($page - 1) * $records_per_page;
+				}
+				$no=1+$posisi;
 				foreach ($anggota->showData($newquery) as $value) {
 					?>
 					<tr style="text-align: center;">
-					<td><?php echo $no+1; ?></td>
+					<td><?php echo $no; ?></td>
 					<td><?php echo $value['nim']; ?></td>
 					<td><?=$value['nama']; ?></td>
 					<td><?=$value['prodi']?></td>
