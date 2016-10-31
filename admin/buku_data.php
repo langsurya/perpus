@@ -1,8 +1,7 @@
 <div class="col-sm-9">
-      <h4>Data Buku</h4>
-      <hr>
+  <h4>Data Buku</h4>
+  <hr>	
 </div>
-
 <div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
@@ -21,6 +20,12 @@
             </div>
         </div>
     	</div><br>
+    	<?php if ($_GET['msg']=='success'): ?>    		
+    	<div class="alert alert-success">
+    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    		<strong>Success!</strong> Data berhasil di hapus.
+  		</div>
+    	<?php endif ?>
 
 			<table class="table table-bordered">
 				<thead>

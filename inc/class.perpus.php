@@ -81,6 +81,13 @@ class perpus
 		$row = $stmt->rowCount();
 		print($row);
 	}
+
+	public function delete($id,$tabel,$key){
+		$stmt = $this->conn->prepare("DELETE FROM $tabel WHERE $key=:id");
+		$stmt->bindparam(":id",$id);
+		$stmt->execute();
+		return true;
+	}
 }
 
 class buku extends perpus{	
@@ -97,13 +104,7 @@ class buku extends perpus{
 		$stmt->bindParam(8,$waktu);
 		$stmt->execute();
 	}	
-
-	public function delete($id,$tabel){
-		$stmt = $this->conn->prepare("DELETE FROM $tabel WHERE id=:id");
-		$stmt->bindparam(":id",$id);
-		$stmt->execute();
-		return true;
-	}
+	
 }
 
 class anggota extends perpus{

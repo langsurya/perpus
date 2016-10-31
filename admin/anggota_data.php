@@ -50,7 +50,7 @@
 						<a href="" title="edit"><span class="glyphicon glyphicon-edit"></span></a>
 					</td>
 					<td>
-						<a href="" title="Hapus"><span class="glyphicon glyphicon-remove"></span></a>
+						<a href="?page=delete&nim=<?php print($value['nim']) ?>" onclick="return confirm('Anda yakin ingin menghapus data Anggota <?php echo $value['nama']; ?> ?')" title="Hapus"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 					</tr>
 					<?php
