@@ -97,6 +97,10 @@ else{
       case 'anggota_input':
         include "anggota_input.php";
         break;
+
+      case 'logout':
+        include "logout.php";
+        break;
       
       default:
         include "home.php";

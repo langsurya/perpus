@@ -6,10 +6,10 @@
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Add New Record</a>
-			<div class="pull-right col-md-3">
+			<div class="pull-right col-md-4">
 				<form action="?page=buku_search" method="post">				
           <div class="input-group">
-				  	<input type="text" name="cari" class="form-control" placeholder="Search Blog..">
+				  	<input type="text" name="cari" class="form-control" placeholder="Cari Judul, Pengarang..">
 				    <span class="input-group-btn">
 				    <button type="submit" class="btn btn-default" type="button">
 				    	<span class="glyphicon glyphicon-search"></span>
