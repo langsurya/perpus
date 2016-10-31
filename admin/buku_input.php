@@ -1,7 +1,7 @@
 
 <?php 
 include_once '../inc/class.perpus.php';
-$obj = new perpus;
+$obj = new buku;
 
 if (isset($_POST['btn-save'])) {
 	$judul = $_POST['judul'];
@@ -18,7 +18,7 @@ if (isset($_POST['btn-save'])) {
 	// 	echo "stmt- > " ."bindParam" ."(".$key.",".$value.")<br>";
 	// 	}
 
-	if ($obj->insert_buku($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi)) {
+	if ($obj->create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi)) {
 		echo "Berhasil";
 	}
 }

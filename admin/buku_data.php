@@ -36,13 +36,16 @@
 				<tbody>
 				<?php 
 				include_once '../inc/class.perpus.php';
-				$obj = new perpus;
+				$buku = new buku;
+				$records_per_page=3;
+				$query = "SELECT * FROM tbl_buku";
+				$newquery = $buku->paging($query,$records_per_page);
 				$no=0;
-				foreach ($obj->showData("tbl_buku") as $value) {
+				foreach ($buku->showData($newquery) as $value) {
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no+1; ?></td>
-					<td><?php echo $value['judul']; ?></td>
+					<td><?=$value['judul']; ?></td>
 					<td><?=$value['pengarang']; ?></td>
 					<td><?=$value['penerbit']?></td>
 					<td><?=$value['jumlah_buku']?></td>
@@ -58,8 +61,15 @@
 				}
 				?>
 				</tbody>
+				<tr>
+	        <td colspan="7" align="center">
+			    <div class="pagination-wrap">
+			      <?php $buku->paginglink($query,$records_per_page); ?>
+			    </div>
+		  	  </td>
+		    </tr>
 			</table>
-			Jumlah : <b><?php $obj->jumlah("tbl_buku"); ?> Buku</b>
+			Jumlah : <b><?php $buku->jumlah("tbl_buku"); ?> Buku</b>
 		</div>
 	</div>
 </div>

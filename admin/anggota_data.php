@@ -25,9 +25,12 @@
 				<tbody>
 				<?php 
 				include_once '../inc/class.perpus.php';
-				$obj = new perpus;
+				$anggota = new anggota;
+				$records_per_page=5;
+				$query = "SELECT * FROM tbl_anggota";
+				$newquery = $anggota->paging($query,$records_per_page);
 				$no=0;
-				foreach ($obj->showData("tbl_anggota") as $value) {
+				foreach ($anggota->showData($newquery) as $value) {
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no+1; ?></td>
@@ -47,8 +50,15 @@
 				}
 				?>
 				</tbody>
+				<tr>
+	        <td colspan="7" align="center">
+			    <div class="pagination-wrap">
+			      <?php $anggota->paginglink($query,$records_per_page); ?>
+			    </div>
+		  	  </td>
+		    </tr>
 			</table>
-			Jumlah : <b><?php $obj->jumlah("tbl_anggota"); ?> Anggota</b>
+			Jumlah : <b><?php $anggota->jumlah("tbl_anggota"); ?> Anggota</b>
 		</div>
 	</div>
 </div>
