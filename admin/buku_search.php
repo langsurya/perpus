@@ -5,7 +5,7 @@
 <div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Add New Record</a>
+			<a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Input Anggota</a>
 			<div class="pull-right col-md-4">
 				<form action="?page=buku_search" method="post">				
           <div class="input-group">
@@ -22,12 +22,6 @@
 		</div>
 		<div style="padding-top: 10px" class="panel-body">
 		<br>
-    	<?php if ($_GET['msg']=='success'): ?>    		
-    	<div class="alert alert-success">
-    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    		<strong>Success!</strong> Data berhasil di hapus.
-  		</div>
-    	<?php endif ?>
 
 			<table class="table table-bordered">
 				<thead>
@@ -49,7 +43,9 @@
 				$query = "SELECT * FROM tbl_buku WHERE judul like '%$cari%' OR pengarang like '%$cari%' ";
 				$newquery = $buku->paging($query,$records_per_page);
 				// penomoran halaman data pada halaman
+				if (isset($_GET['page_no'])) {
 				$page = $_GET['page_no'];
+				}
 				if (empty($page)) {
 					$posisi = 0;
 					$halaman = 1;

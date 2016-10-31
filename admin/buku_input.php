@@ -15,15 +15,9 @@ if (isset($_POST['btn-save'])) {
 	$tanggal = date('Y-m-d');
 	$jam = date('H:i:s');
 	$waktu = $tanggal.' '.$jam;
-	$data = array($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu);
-	var_dump($data);
 
-	// foreach ($data as $key => $value) {		
-	// 	echo "stmt- > " ."bindParam" ."(".$key.",".$value.")<br>";
-	// 	}
-
-	if ($obj->create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu)) {
-		echo "Berhasil";
+	if ($obj->create($judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi,$waktu)) {	
+	header('location:?page=buku&msg=success');
 	}
 }
 

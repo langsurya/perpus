@@ -60,22 +60,17 @@ else{
         <li><a href="?page=laporan"><i class="glyphicon glyphicon-file"></i> Laporan</a></li>
         <li><a href="?page=user"><i class="glyphicon glyphicon-user"></i> User</a></li>
       </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Blog..">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
     </div>
 
     <?php 
-    error_reporting(0);
+    // error_reporting(0);
     switch ($_GET['page']) {
       // menu buku
       case 'buku':
         include "buku_data.php";
+        break;
+      case 'detil-buku':
+        include "buku_detil.php";
         break;
       case 'buku_input':
         include "buku_input.php";
@@ -97,6 +92,12 @@ else{
       case 'anggota_input':
         include "anggota_input.php";
         break;
+      case 'anggota_edit':
+        include "anggota_edit.php";
+        break;
+      case 'anggota_search':
+        include "anggota_search.php";
+        break;
 
       case 'logout':
         include "logout.php";
@@ -113,7 +114,7 @@ else{
 </div>
 <br>
 <footer class="container-fluid">
-  <p>Footer Text</p>
+  <p>&copy; ELANG SURYA <a href="https://phpoison.blogspot.com" target="_blank">PHPOISON.BLOGSPOT.COM</a></p>
 </footer>
 <?php } ?>
 </body>

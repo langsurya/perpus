@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-      <h4>Data Buku</h4>
+      <h4>Data Anggota</h4>
       <hr>
 </div>
 
@@ -22,30 +22,7 @@
 			</div>
 		</div>
 
-		<div style="padding-top: 10px" class="panel-body"><br>	
-		<?php 
-		if (isset($_GET['msg'])) {
-			if ($_GET['msg']=="success") {
-				$msg="
-				<div class='alert alert-success'>
-    		<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-    		<strong>Success!</strong> Data berhasil di tambah.
-  			</div>
-				";
-			}elseif ($_GET['msg']=="delete") {
-				$msg="
-				<div class=\"alert alert-danger\">
-    		<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-    		<strong>Success!</strong> Data berhasil di hapus.
-  			</div>
-				";
-			}
-		}
-
-		if (isset($msg)) {
-			echo $msg;
-		}
-		?>
+		<div style="padding-top: 10px" class="panel-body"><br>			
 
 			<table class="table table-bordered">
 				<thead>
@@ -63,7 +40,8 @@
 				include_once '../inc/class.perpus.php';
 				$anggota = new anggota;
 				$records_per_page=5;
-				$query = "SELECT * FROM tbl_anggota";
+				$cari = $_POST['cari'];
+				$query = "SELECT * FROM tbl_anggota WHERE nim like '%$cari%' OR nama like '%$cari%' ";
 				$newquery = $anggota->paging($query,$records_per_page);
 				// penomoran page row
 				if (isset($_GET['page_no'])) {

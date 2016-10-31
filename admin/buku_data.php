@@ -5,7 +5,7 @@
 <div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Add New Record</a>
+			<a  class="btn btn-success" href="?page=buku_input"><span class="glyphicon glyphicon-plus"></span> Input Buku</a>
 			<div class="pull-right col-md-4">
 				<form action="?page=buku_search" method="post">				
           <div class="input-group">
@@ -22,12 +22,29 @@
 		</div>
 		<div style="padding-top: 10px" class="panel-body">
 		<br>
-    	<?php if ($_GET['msg']=='success'): ?>    		
-    	<div class="alert alert-success">
-    		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <?php 
+		if (isset($_GET['msg'])) {
+			if ($_GET['msg']=="success") {
+				$msg="
+				<div class='alert alert-success'>
+    		<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+    		<strong>Success!</strong> Data berhasil di tambah.
+  			</div>
+				";
+			}elseif ($_GET['msg']=="delete") {
+				$msg="
+				<div class=\"alert alert-danger\">
+    		<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
     		<strong>Success!</strong> Data berhasil di hapus.
-  		</div>
-    	<?php endif ?>
+  			</div>
+				";
+			}
+		}
+
+		if (isset($msg)) {
+			echo $msg;
+		}
+		?>
 
 			<table class="table table-bordered">
 				<thead>
@@ -48,7 +65,9 @@
 				$query = "SELECT * FROM tbl_buku";
 				$newquery = $buku->paging($query,$records_per_page);
 				// penomoran halaman data pada halaman
+				if (isset($_GET['page_no'])) {
 				$page = $_GET['page_no'];
+				}
 				if (empty($page)) {
 					$posisi = 0;
 					$halaman = 1;
@@ -60,7 +79,7 @@
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>
-					<td><?=$value['judul']; ?></td>
+					<td><a href="?page=detil-buku&judul=<?=$value['judul']?>"><?=$value['judul']; ?></a></td>
 					<td><?=$value['pengarang']; ?></td>
 					<td><?=$value['penerbit']?></td>
 					<td><?=$value['jumlah_buku']?></td>

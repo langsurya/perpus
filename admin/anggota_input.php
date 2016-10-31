@@ -27,15 +27,15 @@ if (isset($_POST['btn-save'])) {
 		<table class="table table-bordered">
 			<tr>
 				<td>NIM</td>
-				<td><input class="form-control" type="text" name="nim"></td>
+				<td><input class="form-control" type="text" name="nim" required></td>
 			</tr>
 			<tr>
 				<td>Nama Lengkap</td>
-				<td><input class="form-control" type="text" name="nama"></td>
+				<td><input class="form-control" type="text" name="nama" required></td>
 			</tr>
 			<tr>
 				<td>Tempat Lahir</td>
-				<td><input class="form-control" type="text" name="tempat_lahir"></td>
+				<td><input class="form-control" type="text" name="tempat_lahir" required></td>
 			</tr>
 			<tr>
 				<td>Tanggal Lahir</td>

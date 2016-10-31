@@ -122,23 +122,24 @@ class buku extends perpus{
 
 	public function update($id,$judul,$pengarang,$penerbit,$thn_terbit,$isbn,$jumlah_buku,$lokasi){
 		try {
-      $stmt = $this->conn->prepare("UPDATE tbl_buku SET judul=:judul, pengarang=:pengarang, penerbit=:penerbit, thn_terbit=:thn_terbit, isbn=:isbn, jumlah_buku=:jumlah_buku, lokasi=:lokasi WHERE id=:id ");
-      $stmt->bindparam(":judul",$judul);
-      $stmt->bindparam(":pengarang",$pengarang);
-      $stmt->bindparam(":penerbit",$penerbit);
-      $stmt->bindparam(":thn_terbit",$thn_terbit);
-      $stmt->bindparam(":isbn",$isbn);
-      $stmt->bindparam(":jumlah_buku",$jumlah_buku);
-      $stmt->bindparam(":lokasi",$lokasi);
-      $stmt->bindparam(":id",$id);
-      $stmt->execute();
+		  $stmt = $this->conn->prepare("UPDATE tbl_buku SET judul=:judul, pengarang=:pengarang, penerbit=:penerbit, thn_terbit=:thn_terbit, isbn=:isbn, jumlah_buku=:jumlah_buku, lokasi=:lokasi WHERE id=:id ");
+	    $stmt->bindparam(":judul",$judul);
+	    $stmt->bindparam(":pengarang",$pengarang);
+	    $stmt->bindparam(":penerbit",$penerbit);
+	    $stmt->bindparam(":thn_terbit",$thn_terbit);
+	    $stmt->bindparam(":isbn",$isbn);
+	    $stmt->bindparam(":jumlah_buku",$jumlah_buku);
+	    $stmt->bindparam(":lokasi",$lokasi);
+	    $stmt->bindparam(":id",$id);
+	    $stmt->execute();
 
-      return true;
-    } catch (PDOException $e) {
-      echo $e->getMessage();
-      return false;
-    }
+    	return true;
+	  } catch (PDOException $e) {
+	    echo $e->getMessage();
+		  return false;
+	  }
 	}
+
 	public function search($query){
 		// $sql = "SELECT * FROM $table";
 		$q = $this->conn->query($query) or die("failed!");
@@ -168,5 +169,34 @@ class anggota extends perpus{
 			return false;
 		}
 	}	
+
+	public function update($nim,$nim1,$nama,$tempat_lahir,$tgl_lahir,$jk,$prodi,$thn_masuk){
+		try {
+		  $stmt = $this->conn->prepare("UPDATE tbl_anggota SET nim=:nim1, nama=:nama, tempat_lahir=:tempat_lahir, tgl_lahir=:tgl_lahir, jk=:jk, prodi=:prodi, thn_masuk=:thn_masuk WHERE nim=:nim");
+	    $stmt->bindparam(":nim1",$nim1);
+	    $stmt->bindparam(":nama",$nama);
+	    $stmt->bindparam(":tempat_lahir",$tempat_lahir);
+	    $stmt->bindparam(":tgl_lahir",$tgl_lahir);
+	    $stmt->bindparam(":jk",$jk);
+	    $stmt->bindparam(":prodi",$prodi);
+	    $stmt->bindparam(":thn_masuk",$thn_masuk);
+	    $stmt->bindparam(":nim",$nim);
+	    $stmt->execute();
+
+    	return true;
+	  } catch (PDOException $e) {
+	    echo $e->getMessage();
+		  return false;
+	  }
+	}
+
+	public function search($query){
+		// $sql = "SELECT * FROM $table";
+		$q = $this->conn->query($query) or die("failed!");
+		while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
+			$data[]=$r;
+		}
+		return $data;
+	}
 }
 ?>
