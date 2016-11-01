@@ -85,7 +85,7 @@ else{
         include "delete.php";
         break;
 
-      // menu anggita
+      // menu anggota
       case 'anggota':
         include "anggota_data.php";
         break;
@@ -97,6 +97,14 @@ else{
         break;
       case 'anggota_search':
         include "anggota_search.php";
+        break;
+
+      // menu user
+      case 'user':
+        include "user_data.php";
+        break;
+      case 'user_input':
+        include "user_input.php";
         break;
 
       case 'logout':
