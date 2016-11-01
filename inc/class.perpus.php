@@ -199,4 +199,23 @@ class anggota extends perpus{
 		return $data;
 	}
 }
+
+class user extends perpus{
+	public function create($nama,$username,$password,$email,$userpic,$level){
+		try {
+		$stmt = $this->conn->prepare('INSERT INTO tbl_user(nama,username,password,email,foto,level) VALUES(?,?,?,?,?,?)');
+		$stmt->bindParam(1,$nama);
+		$stmt->bindParam(2,$username);
+		$stmt->bindParam(3,$password);
+		$stmt->bindParam(4,$email);
+		$stmt->bindParam(5,$userpic);
+		$stmt->bindParam(6,$level);
+		$stmt->execute();
+		
+		return true;	
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+}
 ?>
