@@ -77,7 +77,7 @@ if (isset($_POST['btn-save'])) {
 				<td><input class="form-control" type="text" name="email" placeholder="Email.." required></td>
 			</tr>
 			<tr>
-				<td>Jenis Kelamin</td>
+				<td>Foto</td>
 				<td><input type="file" name="foto"></td>
 			</tr>
 			<tr>
