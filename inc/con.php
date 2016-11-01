@@ -1,4 +1,4 @@
-<?php /*belum di pake ini fle dan class.perpus.php*/
+<?php /*belum di pake ini fle*/
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
