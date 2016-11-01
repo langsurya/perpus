@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN USER</title>
+	<title>LOGIN USER PERPUS</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
@@ -29,7 +29,7 @@
 
 						<div style="margin-top: 10px;" class="form-group">
 							<div class="col-sm-12 controls">
-								<button class="btn btn-lg btn-primary btn-block"  name="submit" value="Login" type="Submit">Login</button> 
+								<button class="btn btn-lg btn-primary btn-block"  name="submit" value="Login" type="Submit">Login</button>
 							</div>
 						</div>
 
