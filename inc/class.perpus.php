@@ -90,6 +90,15 @@ class perpus
 		print($row);
 	}
 
+	public function search($query){
+		// $sql = "SELECT * FROM $table";
+		$q = $this->conn->query($query) or die("failed!");
+		while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
+			$data[]=$r;
+		}
+		return $data;
+	}
+
 	public function delete($id,$tabel,$key){
 		$stmt = $this->conn->prepare("DELETE FROM $tabel WHERE $key=:id");
 		$stmt->bindparam(":id",$id);
@@ -139,15 +148,6 @@ class buku extends perpus{
 		  return false;
 	  }
 	}
-
-	public function search($query){
-		// $sql = "SELECT * FROM $table";
-		$q = $this->conn->query($query) or die("failed!");
-		while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
-			$data[]=$r;
-		}
-		return $data;
-	}
 	
 }
 
@@ -190,14 +190,6 @@ class anggota extends perpus{
 	  }
 	}
 
-	public function search($query){
-		// $sql = "SELECT * FROM $table";
-		$q = $this->conn->query($query) or die("failed!");
-		while ($r = $q->fetch(PDO::FETCH_ASSOC)) {
-			$data[]=$r;
-		}
-		return $data;
-	}
 }
 
 class user extends perpus{
