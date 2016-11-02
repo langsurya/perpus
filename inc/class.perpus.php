@@ -217,5 +217,28 @@ class user extends perpus{
 			return false;
 		}
 	}
+
+	public function update($id,$nama,$username,$password,$email,$level,$foto){
+		try {
+			if (empty($foto)) {
+		  $stmt = $this->conn->prepare("UPDATE tbl_user SET nama=:nama, username=:username, password=:password, email=:email, level=:level WHERE id=:id ");
+			}else{
+				$stmt = $this->conn->prepare("UPDATE tbl_user SET nama=:nama, username=:username, password=:password, email=:email, level=:level, foto=:foto WHERE id=:id ");
+	    $stmt->bindparam(":foto",$foto);
+			}
+	    $stmt->bindparam(":nama",$nama);
+	    $stmt->bindparam(":username",$username);
+	    $stmt->bindparam(":password",$password);
+	    $stmt->bindparam(":email",$email);
+	    $stmt->bindparam(":level",$level);
+	    $stmt->bindparam(":id",$id);
+	    $stmt->execute();
+
+    	return true;
+	  } catch (PDOException $e) {
+	    echo $e->getMessage();
+		  return false;
+	  }
+	}
 }
 ?>
