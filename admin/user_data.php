@@ -38,6 +38,13 @@
     		<strong>Success!</strong> Data berhasil di hapus.
   			</div>
 				";
+			}elseif ($_GET['msg']=="edit") {
+				$msg="
+				<div class=\"alert alert-warning\">
+    		<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+    		<strong>Success!</strong> Data berhasil di Edit.
+  			</div>
+				";
 			}
 		}
 

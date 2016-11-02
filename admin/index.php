@@ -106,6 +106,9 @@ else{
       case 'user_input':
         include "user_input.php";
         break;
+      case 'user_edit':
+        include "user_edit.php";
+        break;
 
       case 'logout':
         include "logout.php";
