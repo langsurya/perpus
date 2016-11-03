@@ -79,7 +79,7 @@
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>
-					<td><a href="?page=detil-buku&judul=<?=$value['judul']?>"><?=$value['judul']; ?></a></td>
+					<td><a href="?page=detil-buku&id=<?=$value['id']?>"><?=$value['judul']; ?></a></td>
 					<td><?=$value['pengarang']; ?></td>
 					<td><?=$value['penerbit']?></td>
 					<td><?=$value['jumlah_buku']?></td>

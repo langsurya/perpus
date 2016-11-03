@@ -29,6 +29,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 <div class="col-sm-9">
+	<h4><span class="glyphicon glyphicon-edit"></span> Edit Buku</h4>
   <hr>
 </div>
 
@@ -100,7 +101,7 @@ if (isset($msg)) {
 			<tr>
 				<td colspan="2">
 					<button type="submit" class="btn btn-primary" name="btn-update">
-						<span class="glyphicon glyphicon-plus"></span> Create New Record
+						<span class="glyphicon glyphicon-plus"></span> Update
 					</button>
 					<a href="?page=buku" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp;Kembali</a>
 				</td>

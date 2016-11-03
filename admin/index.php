@@ -81,8 +81,8 @@ else{
       case 'buku_search':
         include "buku_search.php";
         break;
-      case 'delete':
-        include "delete.php";
+      case 'detil-buku':
+        include "buku_detil.php";
         break;
 
       // menu anggota
@@ -98,6 +98,9 @@ else{
       case 'anggota_search':
         include "anggota_search.php";
         break;
+      case 'detil-anggota':
+        include 'anggota_detil.php';
+        break;
 
       // menu user
       case 'user':
@@ -111,6 +114,13 @@ else{
         break;
       case 'user_search':
         include "user_search.php";
+        break;
+      case 'detil-user':
+        include "user_detil.php";
+        break;
+
+      case 'delete':
+        include "delete.php";
         break;
 
       case 'logout':

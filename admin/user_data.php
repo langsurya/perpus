@@ -85,7 +85,7 @@
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>
-					<td><a href="?page=detil-user&nama=<?=$value['nama']?>"><?=$value['nama']; ?></a></td>
+					<td><a href="?page=detil-user&id=<?=$value['id']?>"><?=$value['nama']; ?></a></td>
 					<td><?=$value['email']; ?></td>
 					<td><?=$value['level']?></td>
 					<td>
