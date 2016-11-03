@@ -2,7 +2,7 @@
 aplikasi perpus PHP dan bootstrap
 
 <hr>
-Tambah Data
+Menu
 - Buku
 	- tampil
 	- edit
