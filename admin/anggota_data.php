@@ -80,7 +80,7 @@
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>
-					<td><?php echo $value['nim']; ?></td>
+					<td><a href="?page=detil-anggota&nim=<?=$value['nim'];?>"><?php echo $value['nim']; ?></a></td>
 					<td><?=$value['nama']; ?></td>
 					<td><?=$value['prodi']?></td>
 					<td><?=$value['thn_masuk']?></td>
