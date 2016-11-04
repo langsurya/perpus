@@ -22,8 +22,8 @@ $ket = isset($_POST['ket']) ? $_POST['ket'] : "";
 
 if (isset($_POST['btn-save'])) {
 	$query = "SELECT * FROM tbl_buku WHERE judul ='$buku'";
-	foreach ($transaksi->showData($query) as $buku) {
-		$sisa = $buku['jumlah_buku'];
+	foreach ($transaksi->showData($query) as $bukus) {
+		$sisa = $bukus['jumlah_buku'];
 	}
 	if ($sisa == 0) {
 		echo "<script>alert('Stok bukunya telah habis, tidak bisa melakukan transaksi, tambahkan stok buku segera');</script>";
@@ -33,10 +33,10 @@ if (isset($_POST['btn-save'])) {
 		$qu = $transaksi->u_buku($id,1);
 		if ($qt&&$qu) {
 			echo "<script>alert('Transaksi Sukses');</script>";
-	    echo "<meta http-equiv='refresh' content='2; url=?page=transaksi'>";
+	    echo "<meta http-equiv='refresh' content='1; url=?page=transaksi&msg=success'>";
 		}else{
 			echo "<script>alert('Transaksi Gagal');</script>";
-	    echo "<meta http-equiv='refresh' content='2; url=?page=transaksi'>";
+	    echo "<meta http-equiv='refresh' content='1; url=?page=transaksi&msg=gagal'>";
 		}
 	}
 }
@@ -44,7 +44,7 @@ if (isset($_POST['btn-save'])) {
 ?>
 
 <div class="col-sm-9">
-	<h4>Edit Data User</h4>
+	<h4>Transaksi</h4>
 	<hr>
 </div>
 
