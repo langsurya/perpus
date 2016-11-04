@@ -253,6 +253,39 @@ class transaksi extends perpus{
 			}
 			return $hasil_tgl;
 	}
+
+	public function t_transaksi($buku,$id_mhs,$mhs,$tgl_pinjam,$tgl_kembali,$status,$ket){
+		try {
+		$stmt = $this->conn->prepare('INSERT INTO tbl_transaksi(judul,nim,nama,tgl_pinjam,tgl_kembali,status,ket) VALUES(?,?,?,?,?,?,?)');
+		$stmt->bindParam(1,$buku);
+		$stmt->bindParam(2,$id_mhs);
+		$stmt->bindParam(3,$mhs);
+		$stmt->bindParam(4,$tgl_pinjam);
+		$stmt->bindParam(5,$tgl_kembali);
+		$stmt->bindParam(6,$status);
+		$stmt->bindParam(7,$ket);
+		$stmt->execute();
+		
+		return true;	
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	public function u_buku($id,$nilai){
+		try {
+		  $stmt = $this->conn->prepare("UPDATE tbl_buku SET jumlah_buku=(jumlah_buku-:jml) WHERE id=:id");
+	    $stmt->bindparam(":jml",$nilai);
+	    $stmt->bindparam(":id",$id);
+	    $stmt->execute();
+
+    	return true;
+	  } catch (PDOException $e) {
+	    echo $e->getMessage();
+		  return false;
+	  }
+	}
+
 }
 
 ?>
