@@ -286,6 +286,53 @@ class transaksi extends perpus{
 	  }
 	}
 
+	public function u_transaksi($id,$proses){
+		try {
+			$stmt = $this->conn->prepare("UPDATE tbl_transaksi SET status=:status WHERE id=:id");
+			$stmt->bindparam(":status",$proses);
+	    $stmt->bindparam(":id",$id);
+	    $stmt->execute();
+
+	    return true;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
+	public function ut_buku($nilai,$judul){
+		try {
+			$stmt = $this->conn->prepare("UPDATE tbl_buku SET jumlah_buku=(jumlah_buku+:nilai) WHERE judul=:judul");
+	    $stmt->bindparam(":nilai",$nilai);
+			$stmt->bindparam(":judul",$judul);
+	    $stmt->execute();
+
+	    return true;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+			return false;
+		}
+	}
+
+	public function perpanjang($tgl_kembali,$id){
+		$pecah = explode("-", $tgl_kembali);
+		$next_7_hari = mktime(0,0,0,$pecah[1],$pecah[0]+7,$pecah[2]);
+		$hari_next = date("d-m-Y", $next_7_hari);
+
+		try {
+			$stmt = $this->conn->prepare("UPDATE tbl_transaksi SET tgl_kembali=:hari_next WHERE id=:id");
+	    $stmt->bindparam(":hari_next",$hari_next);
+			$stmt->bindparam(":id",$id);
+	    $stmt->execute();
+
+	    return true;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+			return false;
+		}
+
+	}
+
 }
 
 ?>
