@@ -63,7 +63,7 @@ else{
     </div>
 
     <?php 
-    // error_reporting(0);
+    error_reporting(0);
     switch ($_GET['page']) {
       // menu buku
       case 'buku':
@@ -119,6 +119,20 @@ else{
         include "user_detil.php";
         break;
 
+      // Transaksi
+      case 'transaksi':
+        include "../transaksi_data.php";
+        break;
+      case 'transaksi_input':
+        include "../transaksi_input.php";
+        break;
+      case 'transaksi_search':
+        include "../transaksi_search.php";
+        break;
+
+      case 'laporan':
+        include "laporan.php";
+        break;
       case 'delete':
         include "delete.php";
         break;
