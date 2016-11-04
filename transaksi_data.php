@@ -127,7 +127,7 @@ if (isset($_GET['proses'])) {
 					?>
 					<tr style="text-align: center;">
 					<td><?php echo $no; ?></td>
-					<td><a href="?page=detil-transaksi&id=<?=$value['id']?>"><?=$value['judul']; ?></a></td>
+					<td><?=$value['judul']; ?></td>
 					<td><?=$value['nama']; ?></td>
 					<td><?=$value['tgl_pinjam']?></td>
 					<td><?=$value['tgl_kembali']?></td>
