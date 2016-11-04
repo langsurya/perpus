@@ -1,3 +1,43 @@
+<?php 
+include_once 'inc/class.perpus.php';
+$transaksi = new transaksi;
+date_default_timezone_set('Asia/Jakarta');
+
+if (isset($_GET['proses'])) {
+	if ($_GET['proses']=="Kembali") {
+		$id = $_GET['id'];
+		$judul = $_GET['judul'];
+		$proses = $_GET['proses'];
+		$ut = $transaksi->u_transaksi($id,$proses);
+		$utb = $transaksi->ut_buku(1,$judul);
+		if ($ut || $utb) {
+			echo "<script>alert('Berhasil Dikembalikan')</script>";
+			echo "<meta http-equiv='refresh' content='0; url=?page=transaksi'>";
+		} else {
+			echo "<script>alert('Gagal Dikembalikan')</script>";
+			echo "<meta http-equiv='refresh' content='0; url=?page=transaksi'>";
+		}
+	}elseif ($_GET['proses']=="perpanjang") {
+		$id = $_GET['id'];
+		$tgl_kembali = $_GET['tgl_kembali'];
+		$lambat = $_GET['lambat'];
+		if ($lambat > 7) {
+			echo "<script>alert('Buku yang dipinjam tidak dapat diperpanjang, karena sudah terlambat lebih dari 7 hari. Kembalikan dahulu, kemudian pinjam kembali !');</script>";
+			echo "<meta http-equiv='refresh' content='0; url=?page=transaksi'>";
+		}else{
+
+			if ($transaksi->perpanjang($tgl_kembali,$id)) {
+				echo "<script>alert('Berhasil Diperpanjang');</script>";
+				echo "<meta http-equiv='refresh' content='0; url=?page=transaksi'>";
+			}else{
+				echo "<script>alert('Gagal Diperpanjang');</script>";
+				echo "<meta http-equiv='refresh' content='0; url=?page=transaksi'>";
+			}
+
+		}
+	}
+}
+?>
 <div class="col-sm-9">
   <h4>Data Transaksi</h4>
   <hr>	
@@ -5,11 +45,11 @@
 <div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<a  class="btn btn-success" href="?page=transaksi_input"><span class="glyphicon glyphicon-plus"></span> Input Transaksi</a>
+			<a  class="btn btn-success" href="?page=transaksi_input"><span class="glyphicon glyphicon-plut"></span> Input Transaksi</a>
 			<div class="pull-right col-md-4">
 				<form action="?page=transaksi_search" method="post">				
           <div class="input-group">
-				  	<input type="text" name="cari" class="form-control" placeholder="Cari Nama Buku, User..">
+				  	<input type="text" name="cari" class="form-control" placeholder="Cari Nama Buku, uter..">
 				    <span class="input-group-btn">
 				    <button type="submit" class="btn btn-default" type="button">
 				    	<span class="glyphicon glyphicon-search"></span>
@@ -18,7 +58,7 @@
 				  </div>
 				</form>
       </div>
-			<!-- <div class="panel-title">Input user</div> -->
+			<!-- <div class="panel-title">Input uter</div> -->
 		</div>
 		<div style="padding-top: 10px" class="panel-body">
 		<br>
@@ -35,7 +75,7 @@
 				$msg="
 				<div class=\"alert alert-danger\">
     		<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-    		<strong>Success!</strong> Data berhasil di hapus.
+    		<strong>Success!</strong> Data berhasil di haput.
   			</div>
 				";
 			}elseif ($_GET['msg']=="edit") {
@@ -68,9 +108,7 @@
 				</thead>
 				<tbody>
 				<?php 
-				include_once 'inc/class.perpus.php';
-				$transaksi = new transaksi;
-				date_default_timezone_set('Asia/Jakarta');
+				
 				$records_per_page=5;
 				$query = "SELECT * FROM tbl_transaksi WHERE status='Pinjam' ORDER BY id";
 				$newquery = $transaksi->paging($query,$records_per_page);
@@ -108,10 +146,10 @@
 						?>
 					</td>
 					<td>
-						<a href="?page=transaksi_proses_kembali&id=<?=$value['id'];?>&judul=<?=$value['judul'];?>">kembali</a>
+						<a href="?page=transaksi&proses=Kembali&id=<?=$value['id'];?>&judul=<?=$value['judul'];?>">kembali</a>
 					</td>
 					<td>
-						<a href="?page=transaksi_proses_panjang&id=<?=$value['id'];?>&judul=<?=$value['judul'];?>&tgl_kembali=<?=$value['tgl_kembali'];?>&lambat=<?php echo $lambat; ?>">perpanjang</a>
+						<a href="?page=transaksi&proses=perpanjang&id=<?=$value['id'];?>&judul=<?=$value['judul'];?>&tgl_kembali=<?=$value['tgl_kembali'];?>&lambat=<?php echo $lambat; ?>">perpanjang</a>
 					</td>
 					</tr>
 					<?php
