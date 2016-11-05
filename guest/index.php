@@ -37,7 +37,7 @@
 <body>
 <?php 
 session_start();
-if(!isset($_SESSION['nama'])|| $_SESSION['level'] != "admin"){
+if(!isset($_SESSION['nama'])|| $_SESSION['level'] != "user"){
   echo "<script>alert('Silahkan login terlebih dahulu')</script>";
   echo "<meta http-equiv='refresh' content='0; url=../index.php'>";
 }
@@ -58,7 +58,6 @@ else{
         <li><a href="?page=anggota"><i class="glyphicon glyphicon-list-alt"></i> Anggota</a></li>
         <li><a href="?page=transaksi"><i class="glyphicon glyphicon-random"></i> Transaksi</a></li>
         <li><a href="?page=laporan"><i class="glyphicon glyphicon-file"></i> Laporan</a></li>
-        <li><a href="?page=user"><i class="glyphicon glyphicon-user"></i> User</a></li>
       </ul><br>
     </div>
 
