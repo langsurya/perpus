@@ -45,7 +45,7 @@ if (isset($_GET['proses'])) {
 <div id="loginbox" style="margin-top: ;" class="mainbox col-md-9">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<a  class="btn btn-success" href="?page=transaksi_input"><span class="glyphicon glyphicon-plut"></span> Input Transaksi</a>
+			<a  class="btn btn-success" href="?page=transaksi_input"><span class="glyphicon glyphicon-save-file"></span> Input Transaksi</a>
 			<div class="pull-right col-md-4">
 				<form action="?page=transaksi_search" method="post">				
           <div class="input-group">
