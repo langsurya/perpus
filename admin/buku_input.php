@@ -80,7 +80,7 @@ if (isset($_POST['btn-save'])) {
 			<tr>
 				<td colspan="2">
 					<button type="submit" class="btn btn-primary" name="btn-save">
-						<span class="glyphicon glyphicon-plus"></span> Create New Record
+						<span class="glyphicon glyphicon-plus"></span> Tambah Buku
 					</button>
 					<a href="?page=buku" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp;Kembali</a>
 				</td>
