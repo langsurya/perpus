@@ -37,7 +37,7 @@
 <body>
 <?php 
 session_start();
-if(!isset($_SESSION['nama'])){
+if(!isset($_SESSION['nama'])|| $_SESSION['level'] != "admin"){
   echo "<script>alert('Silahkan login terlebih dahulu')</script>";
   echo "<meta http-equiv='refresh' content='0; url=../index.php'>";
 }
