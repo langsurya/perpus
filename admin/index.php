@@ -138,7 +138,7 @@ else{
         break;
 
       case 'logout':
-        include "logout.php";
+        include "../logout.php";
         break;
       
       default:
